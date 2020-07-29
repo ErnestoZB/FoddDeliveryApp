@@ -36,8 +36,6 @@ namespace FoodDeliveryApp.DbContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            System.Diagnostics.Debugger.Launch();
-
             if (!optionsBuilder.IsConfigured)
             {
                 IConfigurationRoot configuration = new ConfigurationBuilder()
@@ -48,10 +46,6 @@ namespace FoodDeliveryApp.DbContext
                 var connectionString = configuration.GetConnectionString("FoodDeliveryDatabase");
 
                 optionsBuilder.UseSqlServer(connectionString);
-
-                //var connectionString = ConfigurationManager.ConnectionStrings["FoodDeliveryDatabase"].ConnectionString;
-
-                //optionsBuilder.UseSqlServer("Server=DESKTOP-IQGDJPU\\SQLEXPRESS;Database=FoodDelivery;Trusted_Connection=True;");
             }
         }
 

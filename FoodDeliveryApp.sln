@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp", "FoodDeli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.Android", "FoodDeliveryApp\FoodDeliveryApp.Android\FoodDeliveryApp.Android.csproj", "{BC6E98DA-051E-4B55-8206-0AEEB2ED9EBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.Models", "FoodDeliveryApp.Models\FoodDeliveryApp.Models.csproj", "{1BCD99D1-A345-4538-ACF1-C16C8EA56FF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Models", "FoodDeliveryApp.Models\FoodDeliveryApp.Models.csproj", "{1BCD99D1-A345-4538-ACF1-C16C8EA56FF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.DbContext", "FoodDeliveryApp.DbContext\FoodDeliveryApp.DbContext.csproj", "{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Db.Context", "FoodDeliveryApp.DbContext\FoodDeliveryApp.Db.Context.csproj", "{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Db.Repositories.Contracts", "FoodDeliveryApp.Db.Repositories.Contracts\FoodDeliveryApp.Db.Repositories.Contracts.csproj", "{D602905B-0B5C-40BC-A30B-9B2265B06C79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.Db.Repositories.Implementation", "FoodDeliveryApp.Db.Repositories.Implementation\FoodDeliveryApp.Db.Repositories.Implementation.csproj", "{FC6A3115-3144-4B40-86AD-EFCA386F051E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,14 @@ Global
 		{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D602905B-0B5C-40BC-A30B-9B2265B06C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D602905B-0B5C-40BC-A30B-9B2265B06C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D602905B-0B5C-40BC-A30B-9B2265B06C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D602905B-0B5C-40BC-A30B-9B2265B06C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC6A3115-3144-4B40-86AD-EFCA386F051E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC6A3115-3144-4B40-86AD-EFCA386F051E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC6A3115-3144-4B40-86AD-EFCA386F051E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC6A3115-3144-4B40-86AD-EFCA386F051E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
