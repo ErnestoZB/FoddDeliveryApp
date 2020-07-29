@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp", "FoodDeliveryApp\FoodDeliveryApp\FoodDeliveryApp.csproj", "{48FEC7D1-DC35-4076-9000-09A0B1FAB35A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp", "FoodDeliveryApp\FoodDeliveryApp\FoodDeliveryApp.csproj", "{48FEC7D1-DC35-4076-9000-09A0B1FAB35A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.Android", "FoodDeliveryApp\FoodDeliveryApp.Android\FoodDeliveryApp.Android.csproj", "{BC6E98DA-051E-4B55-8206-0AEEB2ED9EBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.Models", "FoodDeliveryApp.Models\FoodDeliveryApp.Models.csproj", "{1BCD99D1-A345-4538-ACF1-C16C8EA56FF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.DbContext", "FoodDeliveryApp.DbContext\FoodDeliveryApp.DbContext.csproj", "{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,14 @@ Global
 		{BC6E98DA-051E-4B55-8206-0AEEB2ED9EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC6E98DA-051E-4B55-8206-0AEEB2ED9EBC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC6E98DA-051E-4B55-8206-0AEEB2ED9EBC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1BCD99D1-A345-4538-ACF1-C16C8EA56FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BCD99D1-A345-4538-ACF1-C16C8EA56FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BCD99D1-A345-4538-ACF1-C16C8EA56FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BCD99D1-A345-4538-ACF1-C16C8EA56FF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
