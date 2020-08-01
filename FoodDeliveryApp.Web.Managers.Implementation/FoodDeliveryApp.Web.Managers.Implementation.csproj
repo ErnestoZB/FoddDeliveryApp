@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoodDeliveryApp.Db.Repositories.Contracts\FoodDeliveryApp.Db.Repositories.Contracts.csproj" />
+    <ProjectReference Include="..\FoodDeliveryApp.Models\FoodDeliveryApp.Models.csproj" />
+    <ProjectReference Include="..\FoodDeliveryApp.Web.Managers.Contracts\FoodDeliveryApp.Web.Managers.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
