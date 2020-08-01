@@ -48,7 +48,7 @@ namespace FoodDeliveryApp.Db.Repositories.Implementation
             Entities.Remove(entityToDelete);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             return Entities.ToList<TEntity>();
         }

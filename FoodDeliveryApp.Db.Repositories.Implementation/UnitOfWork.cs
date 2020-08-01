@@ -31,7 +31,7 @@ namespace FoodDeliveryApp.Db.Repositories.Implementation
 
             Dishes = new BaseRepository<Dish>(_context);
             FoodCategories = new BaseRepository<FoodCategory>(_context);
-            Menus = new BaseRepository<Menu>(_context);
+            Menus = new MenuRepository(_context);
             MenuCategories = new BaseRepository<MenuCategory>(_context);
             Orders = new BaseRepository<Order>(_context);
             Restaurants = new BaseRepository<Restaurant>(_context);
