@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoodDeliveryApp.Db.Repositories.Implementation\FoodDeliveryApp.Db.Repositories.Implementation.csproj" />
+    <ProjectReference Include="..\FoodDeliveryApp.DbContext\FoodDeliveryApp.Db.Context.csproj" />
+    <ProjectReference Include="..\FoodDeliveryApp.Web.Managers.Contracts\FoodDeliveryApp.Web.Managers.Contracts.csproj" />
+    <ProjectReference Include="..\FoodDeliveryApp.Web.Managers.Implementation\FoodDeliveryApp.Web.Managers.Implementation.csproj" />
+  </ItemGroup>
+
+
+</Project>
