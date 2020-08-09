@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace FoodDeliveryApp.Models
+﻿namespace FoodDeliveryApp.Models
 {
-    public class FoodCategory
+    public class FoodCategory : BaseModel
     {
-        public int FoodCategoryId { get; set; }
+        private string _name;
+        public string Name 
+        {
+            get => _name;
+            set => SetValue(ref _name, value);
+        }
 
-        [Required]
-        public string Type { get; set; }
-
-        public IList<Restaurant> Restaurants { get; set; }
+        private string _icon;
+        public string Icon 
+        {
+            get => _icon;
+            set => SetValue(ref _icon, value);
+        }
     }
 }

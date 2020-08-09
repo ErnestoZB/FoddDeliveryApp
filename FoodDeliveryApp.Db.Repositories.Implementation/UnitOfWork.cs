@@ -1,7 +1,7 @@
 ﻿using FoodDeliveryApp.Db.Repositories.Contracts;
-using FoodDeliveryApp.DbContext;
-using FoodDeliveryApp.Models;
+using FoodDeliveryApp.Db.Context;
 using System;
+using FoodDeliveryApp.Entities;
 
 namespace FoodDeliveryApp.Db.Repositories.Implementation
 {
@@ -34,7 +34,7 @@ namespace FoodDeliveryApp.Db.Repositories.Implementation
             Menus = new MenuRepository(_context);
             MenuCategories = new BaseRepository<MenuCategory>(_context);
             Orders = new BaseRepository<Order>(_context);
-            Restaurants = new BaseRepository<Restaurant>(_context);
+            Restaurants = new RestaurantRepository(_context);
             Scores = new BaseRepository<Score>(_context);
             Users = new BaseRepository<User>(_context);
         }

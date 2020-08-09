@@ -1,4 +1,4 @@
-﻿using FoodDeliveryApp.Models;
+﻿using FoodDeliveryApp.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ namespace FoodDeliveryApp.Db.Repositories.Implementation
 {
     public class MenuRepository : BaseRepository<Menu>
     {
-        public MenuRepository(Microsoft.EntityFrameworkCore.DbContext context)
+        public MenuRepository(DbContext context)
             : base(context)
         {
         }

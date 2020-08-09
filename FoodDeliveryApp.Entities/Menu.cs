@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FoodDeliveryApp.Models
+namespace FoodDeliveryApp.Entities
 {
-    public class RestaurantUser
+    public class Menu
     {
+        public int MenuId { get; set; }
+
+        public List<MenuCategory> Categories { get; set; }
+
         public int RestaurantId { get; set; }
         public Restaurant Restaurant { get; set; }
-
-        public int UserId { get; set; }
-        public User User { get; set; }
     }
 }

@@ -3,14 +3,16 @@ using FoodDeliveryApp.Db.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FoodDeliveryApp.Db.Context.Migrations
 {
     [DbContext(typeof(FoodDeliveryContext))]
-    partial class FoodDeliveryContextModelSnapshot : ModelSnapshot
+    [Migration("20200809162642_InitialDb")]
+    partial class InitialDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,40 +49,6 @@ namespace FoodDeliveryApp.Db.Context.Migrations
                     b.HasIndex("MenuCategoryId");
 
                     b.ToTable("Dishes");
-
-                    b.HasData(
-                        new
-                        {
-                            DishId = 1,
-                            Description = "Incluye papas",
-                            MenuCategoryId = 1,
-                            Name = "Hamburguesa con queso",
-                            Price = 50.0
-                        },
-                        new
-                        {
-                            DishId = 2,
-                            Description = "Incluye papas",
-                            MenuCategoryId = 1,
-                            Name = "Hamburguesa con doble carne",
-                            Price = 70.0
-                        },
-                        new
-                        {
-                            DishId = 3,
-                            Description = "500ml",
-                            MenuCategoryId = 2,
-                            Name = "Agua de limón",
-                            Price = 20.0
-                        },
-                        new
-                        {
-                            DishId = 4,
-                            Description = "500ml",
-                            MenuCategoryId = 2,
-                            Name = "Agua de tamarindo",
-                            Price = 20.0
-                        });
                 });
 
             modelBuilder.Entity("FoodDeliveryApp.Entities.FoodCategory", b =>
@@ -101,26 +69,6 @@ namespace FoodDeliveryApp.Db.Context.Migrations
                     b.HasKey("FoodCategoryId");
 
                     b.ToTable("FoodCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            FoodCategoryId = 1,
-                            Icon = "https://i.postimg.cc/Hcm3TwyX/burger.png",
-                            Type = "Burger"
-                        },
-                        new
-                        {
-                            FoodCategoryId = 2,
-                            Icon = "https://i.postimg.cc/S2GdRn65/dessert.png",
-                            Type = "Dessert"
-                        },
-                        new
-                        {
-                            FoodCategoryId = 3,
-                            Icon = "https://i.postimg.cc/zHXjgqpf/pizza.png",
-                            Type = "Pizza"
-                        });
                 });
 
             modelBuilder.Entity("FoodDeliveryApp.Entities.Menu", b =>
@@ -139,13 +87,6 @@ namespace FoodDeliveryApp.Db.Context.Migrations
                         .IsUnique();
 
                     b.ToTable("Menus");
-
-                    b.HasData(
-                        new
-                        {
-                            MenuId = 1,
-                            RestaurantId = 1
-                        });
                 });
 
             modelBuilder.Entity("FoodDeliveryApp.Entities.MenuCategory", b =>
@@ -167,20 +108,6 @@ namespace FoodDeliveryApp.Db.Context.Migrations
                     b.HasIndex("MenuId");
 
                     b.ToTable("MenuCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            MenuCategoryId = 1,
-                            MenuId = 1,
-                            Name = "Comidas"
-                        },
-                        new
-                        {
-                            MenuCategoryId = 2,
-                            MenuId = 1,
-                            Name = "Bebidas"
-                        });
                 });
 
             modelBuilder.Entity("FoodDeliveryApp.Entities.Order", b =>
@@ -259,30 +186,6 @@ namespace FoodDeliveryApp.Db.Context.Migrations
                     b.HasIndex("FoodCategoryId");
 
                     b.ToTable("Restaurants");
-
-                    b.HasData(
-                        new
-                        {
-                            RestaurantId = 1,
-                            Address = "ALDAMA NO. 3315, OBRERA, 31000",
-                            FoodCategoryId = 1,
-                            Image = "https://i.postimg.cc/cCNLMfNm/option3.png",
-                            MaxDeliveryTime = 25,
-                            MinDeliveryTime = 15,
-                            Name = "Burger State",
-                            ShippingPrice = 30.0
-                        },
-                        new
-                        {
-                            RestaurantId = 2,
-                            Address = "ALDAMA NO. 3315, OBRERA, 31000",
-                            FoodCategoryId = 1,
-                            Image = "https://i.postimg.cc/NMZjpN65/option1.png",
-                            MaxDeliveryTime = 45,
-                            MinDeliveryTime = 30,
-                            Name = "Millonario State Cafe",
-                            ShippingPrice = 27.0
-                        });
                 });
 
             modelBuilder.Entity("FoodDeliveryApp.Entities.RestaurantUser", b =>
@@ -322,22 +225,6 @@ namespace FoodDeliveryApp.Db.Context.Migrations
                         .IsUnique();
 
                     b.ToTable("Scores");
-
-                    b.HasData(
-                        new
-                        {
-                            ScoreId = 1,
-                            Average = 4.2999999999999998,
-                            Count = 100,
-                            RestaurantId = 1
-                        },
-                        new
-                        {
-                            ScoreId = 2,
-                            Average = 4.7999999999999998,
-                            Count = 87,
-                            RestaurantId = 2
-                        });
                 });
 
             modelBuilder.Entity("FoodDeliveryApp.Entities.User", b =>

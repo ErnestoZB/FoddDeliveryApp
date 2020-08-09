@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace FoodDeliveryApp.DbContext.Migrations
+namespace FoodDeliveryApp.Db.Context.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,8 @@ namespace FoodDeliveryApp.DbContext.Migrations
                 {
                     FoodCategoryId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(nullable: false)
+                    Type = table.Column<string>(nullable: false),
+                    Icon = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,6 +40,7 @@ namespace FoodDeliveryApp.DbContext.Migrations
                 {
                     RestaurantId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: false),
                     Image = table.Column<string>(nullable: false),
                     MinDeliveryTime = table.Column<int>(nullable: false),
                     MaxDeliveryTime = table.Column<int>(nullable: false),

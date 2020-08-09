@@ -1,4 +1,4 @@
-﻿using FoodDeliveryApp.Models;
+﻿using FoodDeliveryApp.Entities;
 
 namespace FoodDeliveryApp.Db.Repositories.Contracts
 {

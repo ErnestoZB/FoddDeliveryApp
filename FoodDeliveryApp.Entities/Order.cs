@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Text;
 
-namespace FoodDeliveryApp.Models
+namespace FoodDeliveryApp.Entities
 {
     public class Order
     {

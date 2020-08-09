@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace FoodDeliveryApp.Models
 {
-    public class Score
+    public class Score : BaseModel
     {
-        public int ScoreId { get; set; }
+        private int _count;
+        public int Count 
+        { 
+            get => _count;
+            set => SetValue(ref _count, value);
+        }
 
-        [Required]
-        public int Count { get; set; }
-
-        [Required]
-        public double Average { get; set; }
-
-        public int RestaurantId { get; set; }
-        public Restaurant Restaurant {get; set; }
+        private double _average;
+        public double Average 
+        {
+            get => _average;
+            set => SetValue(ref _average, value);
+        }
     }
 }

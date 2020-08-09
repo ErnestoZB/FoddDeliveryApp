@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Configuration\Images\**" />
+    <EmbeddedResource Remove="Configuration\Images\**" />
+    <None Remove="Configuration\Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="appsettings.json" />
   </ItemGroup>
 
@@ -29,10 +35,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.6" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="3.1.6" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FoodDeliveryApp.Models\FoodDeliveryApp.Models.csproj" />
+    <ProjectReference Include="..\FoodDeliveryApp.Db.Repositories.Contracts\FoodDeliveryApp.Db.Repositories.Contracts.csproj" />
+    <ProjectReference Include="..\FoodDeliveryApp.Entities\FoodDeliveryApp.Entities.csproj" />
+    <ProjectReference Include="..\FoodDeliveryApp.Models\FoodDeliveryApp.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

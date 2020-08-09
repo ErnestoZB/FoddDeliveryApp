@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FoodDeliveryApp.Db.Repositories.Contracts\FoodDeliveryApp.Db.Repositories.Contracts.csproj" />
     <ProjectReference Include="..\FoodDeliveryApp.DbContext\FoodDeliveryApp.Db.Context.csproj" />
+    <ProjectReference Include="..\FoodDeliveryApp.Entities\FoodDeliveryApp.Entities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,12 +1,12 @@
-﻿using FoodDeliveryApp.Models;
+﻿using FoodDeliveryApp.Db.Context.Configuration;
+using FoodDeliveryApp.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
-using System.Configuration;
 
-namespace FoodDeliveryApp.DbContext
+namespace FoodDeliveryApp.Db.Context
 {
-    public class FoodDeliveryContext : Microsoft.EntityFrameworkCore.DbContext
+    public class FoodDeliveryContext : DbContext
     {
         public DbSet<Restaurant> Restaurants { get; set; }
 
@@ -78,6 +78,8 @@ namespace FoodDeliveryApp.DbContext
                 .HasOne(pt => pt.User)
                 .WithMany(t => t.FavoriteRestaurants)
                 .HasForeignKey(pt => pt.UserId);
+
+            DataSeeder.Seed(modelBuilder);
         }
     }
 }
