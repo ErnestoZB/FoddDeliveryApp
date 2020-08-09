@@ -1,22 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FoodDeliveryApp.Db.Repositories.Contracts;
 using FoodDeliveryApp.Db.Repositories.Implementation;
-using FoodDeliveryApp.DbContext;
+using FoodDeliveryApp.Db.Context;
 using FoodDeliveryApp.Models;
 using FoodDeliveryApp.Web.Managers.Contracts;
 using FoodDeliveryApp.Web.Managers.Implementation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace FoodDeliveryApp.Web.Api
 {
@@ -34,13 +27,11 @@ namespace FoodDeliveryApp.Web.Api
         {
             services.AddControllers();
 
-            var foodDeliveryDatabase = Configuration.GetConnectionString("FoodDeliveryDatabase");
-            services.AddDbContext<FoodDeliveryContext>(o => o.UseSqlServer(foodDeliveryDatabase), ServiceLifetime.Transient);
+            services.AddDatabase(Configuration);
 
-            services.AddTransient(typeof(IBaseManager<Restaurant>), typeof(RestaurantManager));
-            services.AddTransient(typeof(IBaseManager<Menu>), typeof(MenuManager));
-            services.AddTransient(typeof(IUnitOfWork), typeof(UnitOfWork));
+            services.AddRepositories();
 
+            services.AddManagers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
