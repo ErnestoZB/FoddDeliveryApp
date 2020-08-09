@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp", "FoodDeli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.Android", "FoodDeliveryApp\FoodDeliveryApp.Android\FoodDeliveryApp.Android.csproj", "{BC6E98DA-051E-4B55-8206-0AEEB2ED9EBC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Models", "FoodDeliveryApp.Models\FoodDeliveryApp.Models.csproj", "{1BCD99D1-A345-4538-ACF1-C16C8EA56FF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Entities", "FoodDeliveryApp.Entities\FoodDeliveryApp.Entities.csproj", "{1BCD99D1-A345-4538-ACF1-C16C8EA56FF5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Db.Context", "FoodDeliveryApp.DbContext\FoodDeliveryApp.Db.Context.csproj", "{F149DAB7-9FEF-4F96-9517-D93F1DB226C5}"
 EndProject
@@ -15,11 +15,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Db.Reposito
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Db.Repositories.Implementation", "FoodDeliveryApp.Db.Repositories.Implementation\FoodDeliveryApp.Db.Repositories.Implementation.csproj", "{FC6A3115-3144-4B40-86AD-EFCA386F051E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.Web.Api", "FoodDeliveryApp.Web.Api\FoodDeliveryApp.Web.Api.csproj", "{542A7693-7234-46BA-856A-DC52D207E207}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Web.Api", "FoodDeliveryApp.Web.Api\FoodDeliveryApp.Web.Api.csproj", "{542A7693-7234-46BA-856A-DC52D207E207}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.Web.Managers.Contracts", "FoodDeliveryApp.Web.Managers.Contracts\FoodDeliveryApp.Web.Managers.Contracts.csproj", "{C0900683-E271-4E49-91FB-BBA7BFB00093}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Web.Managers.Contracts", "FoodDeliveryApp.Web.Managers.Contracts\FoodDeliveryApp.Web.Managers.Contracts.csproj", "{C0900683-E271-4E49-91FB-BBA7BFB00093}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.Web.Managers.Implementation", "FoodDeliveryApp.Web.Managers.Implementation\FoodDeliveryApp.Web.Managers.Implementation.csproj", "{8AE0B67D-ECE4-474F-A85C-927D7B69BB44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Web.Managers.Implementation", "FoodDeliveryApp.Web.Managers.Implementation\FoodDeliveryApp.Web.Managers.Implementation.csproj", "{8AE0B67D-ECE4-474F-A85C-927D7B69BB44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Web.Api.Client.Contracts", "FoodDeliveryApp.Web.Api.Client.Contracts\FoodDeliveryApp.Web.Api.Client.Contracts.csproj", "{F8EC8867-E525-4823-9954-D71067927A2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDeliveryApp.Web.Api.Client.Implementation", "FoodDeliveryApp.Web.Api.Client.Implementation\FoodDeliveryApp.Web.Api.Client.Implementation.csproj", "{A5ED62B8-3056-4957-BA55-884544613958}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryApp.Models", "FoodDeliveryApp.Models\FoodDeliveryApp.Models.csproj", "{DE93FCFA-A663-400C-9ED8-024BAE0DE199}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +71,18 @@ Global
 		{8AE0B67D-ECE4-474F-A85C-927D7B69BB44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AE0B67D-ECE4-474F-A85C-927D7B69BB44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AE0B67D-ECE4-474F-A85C-927D7B69BB44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8EC8867-E525-4823-9954-D71067927A2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8EC8867-E525-4823-9954-D71067927A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8EC8867-E525-4823-9954-D71067927A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8EC8867-E525-4823-9954-D71067927A2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5ED62B8-3056-4957-BA55-884544613958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5ED62B8-3056-4957-BA55-884544613958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5ED62B8-3056-4957-BA55-884544613958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5ED62B8-3056-4957-BA55-884544613958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE93FCFA-A663-400C-9ED8-024BAE0DE199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE93FCFA-A663-400C-9ED8-024BAE0DE199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE93FCFA-A663-400C-9ED8-024BAE0DE199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE93FCFA-A663-400C-9ED8-024BAE0DE199}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

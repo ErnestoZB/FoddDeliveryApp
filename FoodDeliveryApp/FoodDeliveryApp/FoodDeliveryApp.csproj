@@ -5,9 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
+    <PackageReference Include="Xamarin.Forms" Version="4.7.0.1260" />
     <PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.5.2" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FoodDeliveryApp.Models\FoodDeliveryApp.Models.csproj" />
+    <ProjectReference Include="..\..\FoodDeliveryApp.Web.Api.Client.Contracts\FoodDeliveryApp.Web.Api.Client.Contracts.csproj" />
+    <ProjectReference Include="..\..\FoodDeliveryApp.Web.Api.Client.Implementation\FoodDeliveryApp.Web.Api.Client.Implementation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\RestaurantsView.xaml.cs">
+      <DependentUpon>RestaurantsView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FoodDeliveryApp.Views.RestaurantsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
+
+    <ScrollView Margin="16">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                HeightRequest="30"
+                HorizontalOptions="Start"
+                Source="menu.png"
+                WidthRequest="30" />
+
+            <Image
+                Grid.Row="0"
+                Grid.Column="2"
+                Aspect="Fill"
+                HeightRequest="30"
+                HorizontalOptions="Start"
+                Source="buy.png"
+                WidthRequest="30" />
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="0,32,0,0"
+                FontAttributes="Bold"
+                Opacity="0.5"
+                Text="Delivering to" />
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="Current Location"
+                TextColor="Black"
+                VerticalTextAlignment="Center" />
+
+            <Image
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="16,0,0,0"
+                HeightRequest="20"
+                HorizontalOptions="Start"
+                Source="arrow.png"
+                WidthRequest="20" />
+
+            <Frame
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0"
+                Padding="0"
+                CornerRadius="8">
+
+                <SearchBar
+                    BackgroundColor="LightGray"
+                    HorizontalOptions="Fill"
+                    Text="Search food" />
+            </Frame>
+
+
+            <Image
+                Grid.Row="3"
+                Grid.Column="2"
+                HeightRequest="30"
+                Source="filter.png"
+                WidthRequest="30" />
+
+            <CollectionView
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Margin="0,16,0,0"
+                HeightRequest="100"
+                HorizontalScrollBarVisibility="Never"
+                ItemsSource="{Binding Categories}"
+                VerticalOptions="Start">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="16" Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical">
+                            <Frame
+                                BackgroundColor="#feeee8"
+                                CornerRadius="8"
+                                HasShadow="True"
+                                HeightRequest="50"
+                                WidthRequest="50">
+
+                                <Image Source="{Binding Icon}" />
+                            </Frame>
+                            <Label HorizontalOptions="Center" Text="{Binding Name}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <CollectionView
+                Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Margin="0,16,0,0"
+                ItemsSource="{Binding Restaurants}">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.Header>
+                    <Label
+                        Margin="0,0,0,8"
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        Text="Popular"
+                        TextColor="Black" />
+                </CollectionView.Header>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Frame
+                            Padding="8"
+                            CornerRadius="8"
+                            HasShadow="True">
+
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Aspect="AspectFill"
+                                    Source="{Binding Image}" />
+
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Margin="0,0,8,8"
+                                    HeightRequest="30"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="End"
+                                    WidthRequest="30">
+
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            CommandParameter="{Binding .}"
+                                            NumberOfTapsRequired="1"
+                                            Tapped="OnFavoriteTapped" />
+                                    </Image.GestureRecognizers>
+
+                                    <Image.Triggers>
+                                        <DataTrigger
+                                            Binding="{Binding IsFavorite}"
+                                            TargetType="Image"
+                                            Value="false">
+                                            <Setter Property="Source" Value="empty_heart.png" />
+                                        </DataTrigger>
+                                        <DataTrigger
+                                            Binding="{Binding IsFavorite}"
+                                            TargetType="Image"
+                                            Value="true">
+                                            <Setter Property="Source" Value="heart.png" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="Medium"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding Name}"
+                                    TextColor="Black" />
+
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Padding="4"
+                                    BackgroundColor="#EEEEEE"
+                                    HorizontalOptions="Start">
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="{}{0} - {1} min">
+                                            <Binding Path="MinDeliveryTime" />
+                                            <Binding Path="MaxDeliveryTime" />
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Padding="4"
+                                    BackgroundColor="#EEEEEE"
+                                    HorizontalOptions="Start">
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="{}Costo de envío: ${0}">
+                                            <Binding Path="ShippingPrice" />
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+
+                                <StackLayout
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Padding="4"
+                                    BackgroundColor="#EEEEEE"
+                                    Orientation="Horizontal">
+
+                                    <Label Text="{Binding Score.Average}" VerticalTextAlignment="Center" />
+
+                                    <Image
+                                        HeightRequest="20"
+                                        Source="star.png"
+                                        WidthRequest="20" />
+
+                                    <Label VerticalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span FontAttributes="Bold" Text="(" />
+                                                <Span Text="{Binding Score.Count}" />
+                                                <Span FontAttributes="Bold" Text=")" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

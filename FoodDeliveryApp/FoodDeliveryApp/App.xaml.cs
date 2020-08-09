@@ -6,6 +6,8 @@ using Xamarin.Essentials.Interfaces;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FoodDeliveryApp.Web.Api.Client.Contracts;
+using FoodDeliveryApp.Web.Api.Client.Implementation;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace FoodDeliveryApp
@@ -25,7 +27,7 @@ namespace FoodDeliveryApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/RestaurantsView");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -33,7 +35,10 @@ namespace FoodDeliveryApp
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<RestaurantsView, RestaurantsViewModel>();
+
+            containerRegistry.Register<IRestaurantsApi, FoodDeliveryApiClient>();
+            containerRegistry.Register<IFoodCategoriesApi, FoodDeliveryApiClient>();
         }
     }
 }
