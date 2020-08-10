@@ -1,4 +1,5 @@
 ﻿using FoodDeliveryApp.Models;
+using FoodDeliveryApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,11 @@ namespace FoodDeliveryApp.Views
             restaurant.IsFavorite = !restaurant.IsFavorite;
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
         {
+            var searchBar = (SearchBar) sender;
 
+            ((RestaurantsViewModel) BindingContext).SearchCommand.Execute(searchBar.Text);
         }
     }
 }

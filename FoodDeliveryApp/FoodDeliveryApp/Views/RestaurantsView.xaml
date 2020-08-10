@@ -78,7 +78,8 @@
                 <SearchBar
                     BackgroundColor="LightGray"
                     HorizontalOptions="Fill"
-                    Text="Search food" />
+                    Placeholder="Search restaurants"
+                    TextChanged="OnSearchTextChanged" />
             </Frame>
 
 
@@ -126,7 +127,7 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="3"
                 Margin="0,16,0,0"
-                ItemsSource="{Binding Restaurants}">
+                ItemsSource="{Binding FilterRestaurants}">
 
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />

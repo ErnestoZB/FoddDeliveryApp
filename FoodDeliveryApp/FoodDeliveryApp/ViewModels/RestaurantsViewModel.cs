@@ -1,13 +1,18 @@
 ﻿using FoodDeliveryApp.Models;
 using FoodDeliveryApp.Web.Api.Client.Contracts;
 using Prism.Navigation;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace FoodDeliveryApp.ViewModels
 {
     public class RestaurantsViewModel : ViewModelBase
     {
+        private const int MinQueryChars = 2;
+
         private IEnumerable<FoodCategory> _categories;
         public IEnumerable<FoodCategory> Categories
         {
@@ -22,6 +27,15 @@ namespace FoodDeliveryApp.ViewModels
             set { SetProperty(ref _restaurants, value); }
         }
 
+        private IEnumerable<Restaurant> _filterRestaurants;
+        public IEnumerable<Restaurant> FilterRestaurants
+        {
+            get { return _filterRestaurants; }
+            set { SetProperty(ref _filterRestaurants, value); }
+        }
+
+        public ICommand SearchCommand { get; }
+
         private readonly IRestaurantsApi _restaurantsApi;
         private readonly IFoodCategoriesApi _categoriesApi;
 
@@ -30,6 +44,8 @@ namespace FoodDeliveryApp.ViewModels
         {
             _restaurantsApi = restaurantsApi;
             _categoriesApi = categoriesApi;
+
+            SearchCommand = new Command<string>(query => SearchRestaurants(query));
         }
 
         public override void Initialize(INavigationParameters parameters)
@@ -48,7 +64,18 @@ namespace FoodDeliveryApp.ViewModels
 
         private async Task InitializeRestaurants()
         {
-            Restaurants = await _restaurantsApi.GetRestaurants();
+            FilterRestaurants = Restaurants = await _restaurantsApi.GetRestaurants();
+        }
+
+        private void SearchRestaurants(string query)
+        {
+            if (query.Length < MinQueryChars)
+            {
+                FilterRestaurants = Restaurants;
+                return;
+            }
+
+            FilterRestaurants = Restaurants.Where(r => r.Name.ToLowerInvariant().Contains(query.ToLowerInvariant()));
         }
     }
 }
