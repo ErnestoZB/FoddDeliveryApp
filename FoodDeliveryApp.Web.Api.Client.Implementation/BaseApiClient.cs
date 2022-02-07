@@ -10,21 +10,36 @@ namespace FoodDeliveryApp.Web.Api.Client.Implementation
 {
     public abstract class BaseApiClient
     {
-        protected readonly HttpClient Client;
 
+        private static string ApiHost = "https://10.0.2.2:44330/";
+
+
+#if DEBUG
+        private static readonly HttpClientHandler insecureHandler = GetInsecureHandler();
+        private static readonly HttpClient _client = new HttpClient(insecureHandler)
+        {
+            BaseAddress = new Uri(ApiHost)
+        };
+#else
+        private static readonly HttpClient _client = new HttpClient()
+        {
+            BaseAddress = new Uri(ApiHost)
+        };
+#endif
         protected static readonly JsonSerializerSettings JsonSettings = new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
 
-        public BaseApiClient(string host)
+        // This method must be in a class in a platform project, even if
+        // the HttpClient object is constructed in a shared project.
+        public static HttpClientHandler GetInsecureHandler()
         {
-            var clientHandler = new HttpClientHandler
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
             {
-                ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }
+                if (cert.Issuer.Equals("CN=localhost"))
+                    return true;
+                return true;
             };
-
-            Client = new HttpClient(clientHandler)
-            {
-                BaseAddress = new Uri(host)
-            };
+            return handler;
         }
 
         private static async Task<HttpContent> ValueAsHttpContent(object value)
@@ -72,7 +87,7 @@ namespace FoodDeliveryApp.Web.Api.Client.Implementation
             {
                 var httpRequestMessage = await CreateRequestMessage(HttpMethod.Get, requestUri, headers, content);
 
-                using (HttpResponseMessage response = await Client.SendAsync(httpRequestMessage))
+                using (HttpResponseMessage response = await _client.SendAsync(httpRequestMessage))
                 {
                     return await HttpContentAsValue<T>(response.Content);
                 }
@@ -89,7 +104,7 @@ namespace FoodDeliveryApp.Web.Api.Client.Implementation
             {
                 var httpRequestMessage = await CreateRequestMessage(HttpMethod.Post, requestUri, headers, content);
 
-                using (HttpResponseMessage response = await Client.SendAsync(httpRequestMessage))
+                using (HttpResponseMessage response = await _client.SendAsync(httpRequestMessage))
                 {
                     return await HttpContentAsValue<T>(response.Content);
                 }

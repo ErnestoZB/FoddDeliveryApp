@@ -9,12 +9,6 @@ namespace FoodDeliveryApp.Web.Api.Client.Implementation
 {
     public class FoodDeliveryApiClient : BaseApiClient, IFoodCategoriesApi, IRestaurantsApi
     {
-        private static string ApiHost = "https://192.168.1.72:44354/";
-
-        public FoodDeliveryApiClient() : base(ApiHost)
-        {
-        }
-
         public async Task<IEnumerable<FoodCategory>> GetFoodCategories()
         {
             var requestUri = $"api/foodcategories";

@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FoodDeliveryApp.Entities\FoodDeliveryApp.Entities.csproj" />
-    <ProjectReference Include="..\FoodDeliveryApp.Models\FoodDeliveryApp.Entities.csproj" />
   </ItemGroup>
 
 </Project>
